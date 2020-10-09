@@ -1,0 +1,24 @@
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  name: doom
+  namespace: js-dos-doom
+spec:
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  selector:
+    matchLabels:
+      app: doom
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: doom
+    spec:
+      containers:
+      - name: doom
+        image: nzregularit/js-dos-doom
+        ports:
+        - containerPort: 80

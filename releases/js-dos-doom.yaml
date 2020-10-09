@@ -1,0 +1,11 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: doom
+  namespace: js-dos-doom
+spec:
+  releaseName: doom
+  chart:
+    git: https://github.com/nzRegularIT/js-dos-doom.git
+    path: charts
+    ref: master
